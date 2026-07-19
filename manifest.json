@@ -1,7 +1,7 @@
 {
   "name": "Дневник чтения — поиск",
   "short_name": "Дневник",
-  "start_url": "/index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4a4a4a",
@@ -10,7 +10,7 @@
     { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
   ],
   "share_target": {
-    "action": "/search.html",
+    "action": "search.html",
     "method": "GET",
     "params": { "text": "text", "title": "title" }
   }
