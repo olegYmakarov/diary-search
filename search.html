@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head><meta charset="UTF-8"><title>Отладка</title></head>
-<body style="font-family:sans-serif;padding:20px;word-break:break-all">
-<h3>Что получено:</h3>
+<head><meta charset="UTF-8"><title>Поиск…</title></head>
+<body>
 <script>
-  var p = new URLSearchParams(location.search);
-  document.write('<p><b>text:</b> "' + (p.get('text') || '') + '"</p>');
-  document.write('<p><b>title:</b> "' + (p.get('title') || '') + '"</p>');
-  document.write('<p><b>url:</b> "' + (p.get('url') || '') + '"</p>');
-  document.write('<p><b>весь query:</b> ' + location.search + '</p>');
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxd9j-4RSoixsP_VUEzlZd_ux0SmUSMzQ9wUV2Hr3g0guQFEs9ybYPta3zIWH3G-SJGfg/exec';
+  var params = new URLSearchParams(location.search);
+  var q = (params.get('text') || params.get('title') || '').trim();
+  if (q) {
+    location.replace(SCRIPT_URL + '?q=' + encodeURIComponent(q));
+  } else {
+    document.body.innerHTML = '<p style="font-family:sans-serif;padding:20px">Не удалось получить текст запроса.</p>';
+  }
 </script>
 </body>
 </html>
