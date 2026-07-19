@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Поиск…</title></head>
+<body>
+<script>
+  var SCRIPT_URL = 'ТВОЙ_URL_ИЗ_APPS_SCRIPT';
+  var params = new URLSearchParams(location.search);
+  var q = (params.get('text') || params.get('title') || '').trim();
+  if (q) {
+    location.replace(SCRIPT_URL + '?q=' + encodeURIComponent(q));
+  } else {
+    document.body.innerHTML = '<p style="font-family:sans-serif;padding:20px">Не удалось получить текст запроса.</p>';
+  }
+</script>
+</body>
+</html>
